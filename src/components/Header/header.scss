@@ -1,4 +1,4 @@
-@import 'variables';
+@import '../variables';
 #home {
   position: relative;
   min-height: 100vh;
@@ -18,45 +18,46 @@
     .swiper-slide {
       background-color: #000000;
       z-index: 0;
-      .slider-image {
+      .gatsby-image-wrapper {
         opacity: 0.5;
         z-index: -1;
         width: 100%;
         height: 100vh;
         position: absolute;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
       }
       position: relative;
     }
     .home-logo {
       @include position-absolute-center;
-      width: 194px;
-      height: 123px;
+      width: 500px;
       top: 5%;
       z-index: 2;
     }
 
     .home-text {
-      white-space: nowrap;
+      white-space: wrap;
       width: inherit;
       height: inherit;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
       color: $primary-color;
       font-family: 'cinzelregular';
-      font-size: 185px;
+      line-height: 5rem;
+      font-size: 5rem;
       z-index: 2;
       @include for-tablet-portrait-only {
-        font-size: 140px;
+        line-height: 4rem;
+        font-size: 4rem;
       }
       @include for-phone-only {
-        font-size: 60px;
+        line-height: 3rem;
+        font-size: 3rem;
       }
       @include for-tiny-phone-only {
-        font-size: 40px;
+        line-height: 2rem;
+        font-size: 2rem;
       }
     }
     .home-scroll {
@@ -81,7 +82,7 @@
       opacity: 1;
       width: 28px;
       height: 28px;
-      background: url('../images/Oval.svg');
+      background: url('../../images/Oval.svg');
       background-size: 8px 8px;
       background-repeat: no-repeat;
       background-position: center center;
@@ -103,7 +104,7 @@
       }
     }
     .swiper-pagination-bullet-active {
-      background: url('../images/OvalSelected.svg');
+      background: url('../../images/OvalSelected.svg');
       background-size: 28px 28px;
     }
   }

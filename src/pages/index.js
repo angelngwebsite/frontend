@@ -1,24 +1,18 @@
-import React from 'react'
-import Home from '../components/home'
+import React, { Component } from 'react'
 import Layout from '../components/layout'
-import Img from 'gatsby-image'
-import { Link, graphql } from 'gatsby'
 
-const IndexPage = props => (
-  <Layout>
-    <Img fluid={props.data.imageOne.childImageSharp.fluid} />
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
-export const pageQuery = graphql`
-  query {
-    imageOne: file(relativePath: { eq: "Image1.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+import { Link } from 'gatsby'
+
+export default class FrontPage extends Component {
+  constructor(props) {
+    super(props)
   }
-`
-export default IndexPage
+
+  render() {
+    return (
+      <Layout>
+        <Link to="/page-2/">Go to page 2</Link>
+      </Layout>
+    )
+  }
+}
