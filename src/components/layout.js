@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './Header/header'
+import Hero from './Hero/hero'
 import './layout.scss'
 
 const Layout = ({ children }) => (
@@ -16,9 +16,7 @@ const Layout = ({ children }) => (
             siteUrl
           }
         }
-        allWordpressPost(
-          filter: { acf: { headerImage: { wordpress_id: { ne: null } } } }
-        ) {
+        allWordpressPost(filter: { acf: { isHeader: { ne: null } } }) {
           edges {
             node {
               id
@@ -56,7 +54,7 @@ const Layout = ({ children }) => (
           >
             <html lang="en" />
           </Helmet>
-          <Header
+          <Hero
             headerText={data.allWordpressPost.edges[0].node.acf.headerText}
             headerImage={data.allWordpressPost.edges[0].node.acf.headerImage}
             siteUrl={data.site.siteMetadata.siteUrl}

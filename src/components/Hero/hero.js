@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import line from '../../images/Line.svg'
 import logo from '../../images/Logo.svg'
 import mouse from '../../images/Mouse.svg'
-import './header.scss'
+import './hero.scss'
 
 const Header = ({ headerText, headerImage,siteUrl,title }) => {
   const params = {
@@ -14,7 +14,7 @@ const Header = ({ headerText, headerImage,siteUrl,title }) => {
     },
   }
   return (
-    <section id="home">
+    <section id="header">
       <img alt="scrollp" className="home-line" src={line} />
       <div className="swiper-container home-swiper">
 

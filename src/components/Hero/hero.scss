@@ -1,0 +1,146 @@
+@import '../variables';
+#header {
+  position: relative;
+  height: 90vh;
+  width: 100vw;
+  .home-line {
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 93%;
+    z-index: 5;
+    width: 1px;
+    height: 90px;
+  }
+  .swiper-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .swiper-wrapper {
+      height: 100%;
+      width: 100%;
+      .swiper-slide {
+        height: 100%;
+        width: 100%;
+        background-color: #000000;
+        z-index: 0;
+        .gatsby-image-wrapper {
+          opacity: 0.5;
+          z-index: -1;
+          width: 100%;
+          height: 100vh;
+          position: absolute;
+        }
+        position: relative;
+      }
+    }
+
+    .home-logo {
+      text-align: center;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      width: 500px;
+      top: 5%;
+      z-index: 2;
+    }
+
+    a.logo-icon {
+      position: absolute;
+      top: 5%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+
+      :hover {
+        opacity: 0.7;
+        transition: opacity 0.8s ease-in-out;
+      }
+      img {
+        width: 500px;
+      }
+    }
+
+    .caption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 4vw;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      z-index: 3;
+      text-align: center;
+      font-weight: 400;
+
+      font-family: 'Cinzel';
+      margin: 0;
+      .centered {
+        margin-left: 4vw;
+        margin-right: 4vw;
+        display: inline-block;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        @include vertical-align;
+      }
+      @include respond-to(desktop-extra-large) {
+        font-size: 1vw;
+      }
+      @include respond-to(desktop-large) {
+        font-size: 4vw;
+      }
+
+      @include respond-to(mobile) {
+        font-size: 6vw;
+      }
+      @include respond-to(mobile-small) {
+        font-size: 7vw;
+      }
+    }
+    .home-scroll {
+      text-align: center;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: 'cinzelregular';
+      font-size: 14px;
+      top: 80%;
+      z-index: 2;
+    }
+    .home-mouse {
+      text-align: center;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      top: 85%;
+      z-index: 2;
+      width: 24px;
+      height: 42px;
+    }
+
+    .swiper-pagination {
+      position: absolute;
+    }
+  }
+}
