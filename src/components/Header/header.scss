@@ -1,111 +1,163 @@
-@import '../variables';
+@import "../variables";
 #home {
-  position: relative;
-  min-height: 100vh;
-  .home-line {
-    @include position-absolute-center;
-    top: 93%;
-    z-index: 5;
-    width: 1px;
-    height: 90px;
-    @include for-phone-and-tiny-phone {
-      top: 93%;
-      height: 70px;
-    }
-  }
-  .swiper-container {
-    height: 100vh;
-    .swiper-slide {
-      background-color: #000000;
-      z-index: 0;
-      .gatsby-image-wrapper {
-        opacity: 0.5;
-        z-index: -1;
-        width: 100%;
-        height: 100vh;
-        position: absolute;
-      }
-      position: relative;
-    }
-    .home-logo {
-      @include position-absolute-center;
-      width: 500px;
-      top: 5%;
-      z-index: 2;
-    }
+	position: relative;
+	height: 80vh;
+	width: 100vw;
+	.home-line {
+		text-align: center;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		position: absolute;
+		top: 93%;
+		z-index: 5;
+		width: 1px;
+		height: 90px;
+	}
+	.swiper-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		.swiper-wrapper {
+			height: 100%;
+			width: 100%;
+			.swiper-slide {
+				height: 100%;
+				width: 100%;
+				background-color: #000000;
+				z-index: 0;
+				.gatsby-image-wrapper {
+					opacity: 0.5;
+					z-index: -1;
+					width: 100%;
+					height: 100vh;
+					position: absolute;
+				}
+				position: relative;
+			}
+		}
 
-    .home-text {
-      white-space: wrap;
-      width: inherit;
-      height: inherit;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: $primary-color;
-      font-family: 'cinzelregular';
-      line-height: 5rem;
-      font-size: 5rem;
-      z-index: 2;
-      @include for-tablet-portrait-only {
-        line-height: 4rem;
-        font-size: 4rem;
-      }
-      @include for-phone-only {
-        line-height: 3rem;
-        font-size: 3rem;
-      }
-      @include for-tiny-phone-only {
-        line-height: 2rem;
-        font-size: 2rem;
-      }
-    }
-    .home-scroll {
-      @include position-absolute-center;
-      text-transform: uppercase;
-      color: $primary-color;
-      font-family: 'cinzelregular';
-      font-size: 14px;
-      top: 80%;
-      z-index: 2;
-    }
-    .home-mouse {
-      @include position-absolute-center;
-      top: 85%;
-      z-index: 2;
-      width: 24px;
-      height: 42px;
-    }
-    .swiper-pagination-bullet {
-      margin: 0;
-      z-index: 1;
-      opacity: 1;
-      width: 28px;
-      height: 28px;
-      background: url('../../images/Oval.svg');
-      background-size: 8px 8px;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
+		.home-logo {
+			text-align: center;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			position: absolute;
+			width: 500px;
+			top: 5%;
+			z-index: 2;
+		}
 
-    .swiper-pagination {
-      margin: 0;
-      padding-top: 20%;
-      top: 10%;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      @include for-phone-and-tiny-phone {
-        top: 20%;
-      }
-    }
-    .swiper-pagination-bullet-active {
-      background: url('../../images/OvalSelected.svg');
-      background-size: 28px 28px;
-    }
-  }
+		a.logo-icon {
+			position: absolute;
+			top: 5%;
+			left: 0;
+			right: 0;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 1;
+
+			:hover {
+				opacity: 0.7;
+				transition: opacity 0.8s ease-in-out;
+			}
+			img {
+				width: 500px;
+			}
+		}
+
+		.header-text {
+			white-space: wrap;
+			width: inherit;
+			height: inherit;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+
+			color: #fff;
+			font-family: "Cinzel";
+			font-weight: normal;
+			text-transform: uppercase;
+			line-height: 5rem;
+			font-size: 5rem;
+			z-index: 2;
+		}
+		.caption {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			font-size: 4vw;
+			line-height: 1;
+			text-transform: uppercase;
+			color: #fff;
+			text-align: center;
+			z-index: 3;
+			text-align: center;
+			font-weight: 400;
+
+			font-family: "Cinzel";
+			margin: 0;
+			.centered {
+				margin-left: 4vw;
+				margin-right: 4vw;
+				display: inline-block;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: center;
+				@include vertical-align;
+			}
+			@include respond-to(desktop-extra-large) {
+				font-size: 1vw;
+			}
+			@include respond-to(desktop-large) {
+				font-size: 4vw;
+			}
+
+			@include respond-to(mobile) {
+				font-size: 6vw;
+			}
+			@include respond-to(mobile-small) {
+				font-size: 7vw;
+			}
+		}
+		.home-scroll {
+			text-align: center;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			position: absolute;
+			text-transform: uppercase;
+			color: #fff;
+			font-family: "cinzelregular";
+			font-size: 14px;
+			top: 80%;
+			z-index: 2;
+		}
+		.home-mouse {
+			text-align: center;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			position: absolute;
+			top: 85%;
+			z-index: 2;
+			width: 24px;
+			height: 42px;
+		}
+
+		.swiper-pagination {
+			position: absolute;
+		}
+	}
 }

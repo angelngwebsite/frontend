@@ -1,67 +1,61 @@
-$primary-color: #ffffff;
-$secondary-color: #f8f8f8;
-$tertiary-color: #4f4f50;
+// Fonts
 
-@mixin for-tiny-phone-only {
-  @media (min-width: 0px) and (max-width: 319px) {
-    @content;
-  }
-}
-@mixin for-phone-only {
-  @media (min-width: 320px) and (max-width: 599px) {
-    @content;
-  }
-}
-@mixin for-phone-and-tiny-phone {
-  @media (min-width: 0px) and (max-width: 599px) {
-    @content;
-  }
+// Images
+$transition: 350ms ease-in-out;
+
+// Dimensions
+
+$break-mobile-small: 450px;
+$break-mobile: 768px;
+$break-tablet: 980px;
+$break-desktop: $break-tablet;
+$break-desktop-large: 1440px;
+$break-desktop-extra-large: 1800px;
+
+@mixin respond-to($media) {
+	@if $media == mobile-small {
+		@media only screen and (max-width: $break-mobile-small - 1) {
+			@content;
+		}
+	} @else if $media == mobile {
+		@media only screen and (max-width: $break-mobile - 1) {
+			@content;
+		}
+	} @else if $media == tablet {
+		@media only screen and (min-width: $break-mobile) and (max-width: $break-tablet - 1) {
+			@content;
+		}
+	} @else if $media == mobile-devices {
+		@media only screen and (max-width: $break-tablet - 1) {
+			@content;
+		}
+	} @else if $media == mobile-device-landscape {
+		@media only screen and (max-width: $break-tablet - 1) and (orientation: landscape) {
+			@content;
+		}
+	} @else if $media == tablet-and-desktop {
+		@media only screen and (min-width: $break-mobile) {
+			@content;
+		}
+	} @else if $media == desktop {
+		@media only screen and (min-width: $break-desktop) {
+			@content;
+		}
+	} @else if $media == desktop-large {
+		@media only screen and (min-width: $break-desktop-large) {
+			@content;
+		}
+	} @else if $media == desktop-extra-large {
+		@media only screen and (min-width: $break-desktop-extra-large) {
+			@content;
+		}
+	}
 }
 
-@mixin for-tablet-portrait-only {
-  @media (min-width: 600px) and (max-width: 899px) {
-    @content;
-  }
-}
-@mixin for-phone-and-tiny-phone-and-tablet-portrait {
-  @media (min-width: 0px) and (max-width: 899px) {
-    @content;
-  }
-}
-@mixin for-phone-and-tablet-portrait {
-  @media (min-width: 320px) and (max-width: 899px) {
-    @content;
-  }
-}
-@mixin for-tablet-landscape-only {
-  @media (min-width: 900px) and (max-width: 1199px) {
-    @content;
-  }
-}
-@mixin for-desktop-up {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
-@mixin position-absolute-center {
-  text-align: center;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-}
-@mixin default-margins {
-  margin-left: 15%;
-  margin-right: 15%;
-  @include for-phone-and-tiny-phone {
-    margin-left: 0%;
-    margin-right: 0%;
-  }
-
-  @include for-tablet-portrait-only {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }

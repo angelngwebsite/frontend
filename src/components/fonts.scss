@@ -1,0 +1,112 @@
+$fonts-path: "../fonts/";
+
+@mixin font-face(
+	$font-name,
+	$font-path,
+	$font-weight: normal,
+	$font-style: normal
+) {
+	@font-face {
+		font-family: "#{$font-name}";
+		src: url("#{$font-path}.woff2") format("woff2"),
+			url("#{$font-path}.woff") format("woff");
+		font-weight: $font-weight;
+		font-style: $font-style;
+	}
+}
+
+@mixin loading-icon() {
+	&:before {
+		content: " ";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 24px;
+		height: 24px;
+		margin: -12px 0 0 -12px;
+		border: 3px solid transparent;
+		border-top-color: #a59368;
+		border-bottom-color: #a59368;
+		border-radius: 50%;
+
+		animation: loading-icon-spin 1200ms linear infinite;
+	}
+
+	@keyframes loading-icon-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+	$responsive-unitless: $responsive / ($responsive - $responsive + 1);
+	$dimension: if(unit($responsive) == "vh", "height", "width");
+	$min-breakpoint: $min / $responsive-unitless * 100;
+
+	@media (max-#{$dimension}: #{$min-breakpoint}) {
+		font-size: $min;
+	}
+
+	@if $max {
+		$max-breakpoint: $max / $responsive-unitless * 100;
+
+		@media (min-#{$dimension}: #{$max-breakpoint}) {
+			font-size: $max;
+		}
+	}
+
+	@if $fallback {
+		font-size: $fallback;
+	}
+
+	font-size: $responsive;
+}
+
+$transition: 350ms ease-in-out;
+// Commonly used weight names:
+// 100 - Thin
+// 200 - Extra Light (Ultra Light)
+// 300 - Light
+// 400 - Normal (Regular)
+// 500 - Medium
+// 600 - Semi Bold (Demi Bold)
+// 700 - Bold
+// 800 - Extra Bold (Ultra Bold)
+// 900 - Black (Heavy)
+
+$fonts: (
+	"Open Sans": (
+		("opensans-regular", normal, normal)
+	),
+	"Cinzel": (
+		("cinzel-bold", 700, normal) ("cinzel-regular", 400, normal)
+	),
+	"Allura": (
+		("allura-regular", normal, normal)
+	)
+);
+
+@each $font-name, $font-variations in $fonts {
+	@if type-of(nth($font-variations, 1)) == list {
+		// Workaround for font families with only one font variation (use @debug($font-variations) to understand)
+		@each $font-properties in $font-variations {
+			@include font-face(
+				$font-name,
+				#{$fonts-path}#{nth($font-properties, 1)},
+				nth($font-properties, 2),
+				nth($font-properties, 3)
+			);
+		}
+	} @else {
+		@include font-face(
+			$font-name,
+			#{$fonts-path}#{nth($font-variations, 1)},
+			nth($font-variations, 2),
+			nth($font-variations, 3)
+		);
+	}
+}

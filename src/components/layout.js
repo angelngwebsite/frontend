@@ -13,6 +13,7 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            siteUrl
           }
         }
         allWordpressPost(
@@ -58,6 +59,8 @@ const Layout = ({ children }) => (
           <Header
             headerText={data.allWordpressPost.edges[0].node.acf.headerText}
             headerImage={data.allWordpressPost.edges[0].node.acf.headerImage}
+            siteUrl={data.site.siteMetadata.siteUrl}
+            title={data.site.siteMetadata.title}
           />
           <div>{children}</div>
         </>

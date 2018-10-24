@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    siteUrl: 'https://angelng.ee/',
+    siteName: 'ANGELG Design Studio',
+    title: 'ANGELG Design Studio',
   },
   plugins: [
     {

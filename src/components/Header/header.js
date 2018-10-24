@@ -6,7 +6,7 @@ import logo from '../../images/Logo.svg'
 import mouse from '../../images/Mouse.svg'
 import './header.scss'
 
-const Header = ({ headerText, headerImage }) => {
+const Header = ({ headerText, headerImage,siteUrl,title }) => {
   const params = {
     navigation: {
       nextEl: '.swiper-button-next',
@@ -17,13 +17,17 @@ const Header = ({ headerText, headerImage }) => {
     <section id="home">
       <img alt="scrollp" className="home-line" src={line} />
       <div className="swiper-container home-swiper">
-        <img alt="logo-icon" className="home-logo" src={logo} />
+
+    <a className="logo-icon" href={siteUrl}>
+        <img src={logo} href={siteUrl} alt={title}/>
+      </a> 
+
+        {/* <img alt={siteUrl} className="home-logo" src={logo} /> */}
         <div className="home-scroll">Scroll to explore</div>
         <img alt="mouse-icon" className="home-mouse" src={mouse} />
-        <div className="swiper-pagination" />
         <div className="swiper-wrapper">
           <div className="swiper-slide">
-            <div className="home-text">{headerText}</div>
+            <h1 className="caption"><div className="centered">{headerText}</div></h1>
             <Img
               style={{
                 position: 'absolute',
@@ -36,6 +40,7 @@ const Header = ({ headerText, headerImage }) => {
             />
           </div>
         </div>
+        <div className="swiper-pagination" />
       </div>
     </section>
   )
