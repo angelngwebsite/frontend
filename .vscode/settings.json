@@ -1,0 +1,30 @@
+{
+    "editor.formatOnSave": false,
+    "search.useIgnoreFiles": false,
+    "macros": {
+        "findInAllFiles": [
+            "workbench.action.findInFiles",
+            "search.action.cancel",
+            "search.action.refreshSearchResults"
+        ],
+        "findInFolder": [
+            "filesExplorer.findInFolder",
+            "search.action.refreshSearchResults"
+        ]
+    },
+    // "html.validate.scripts": false,
+    // "html.validate.styles": false,
+    // "files.associations": {
+    //     "*.tpl": "html"
+    // },
+    "[scss]": {
+        "editor.formatOnSave": true
+    },
+    "[css]": {
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "scssFormatter.useTabs": true,
+}

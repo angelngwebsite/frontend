@@ -1,0 +1,235 @@
+@import "../variables";
+#promos {
+	position: relative;
+	z-index: 30;
+	text-align: center;
+	overflow: hidden;
+	background-color: #f8f8f8;
+	.swiper-container {
+		//max-width: $break-desktop-large;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	.swiper-wrapper {
+		font-size: 0;
+		white-space: nowrap;
+	}
+
+	.promo {
+		position: relative;
+		display: inline-block;
+		width: 33.33%;
+		vertical-align: top;
+		overflow: hidden;
+		white-space: normal;
+		background: #5f5f5f;
+		color: #fff;
+
+		.inner-wrapper {
+			width: 100%;
+			padding-top: 150%;
+			.thumbnail {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-position: 50% 50%;
+				background-size: cover;
+				transform: scale(1.1);
+				transition: transform 600ms;
+
+				&:after {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: rgba(0, 0, 0, 0.25);
+				}
+
+				.loading {
+					@include loading-icon();
+
+					&:before {
+						top: 8%;
+						right: 8%;
+						left: auto;
+						margin: auto;
+					}
+				}
+			}
+			.promo-button {
+				display: block;
+				font-size: 18px;
+				line-height: 24px;
+				text-decoration: none;
+				color: #fff;
+				text-transform: uppercase;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.content {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0%;
+			z-index: 2;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			h4 {
+				flex: 1 1 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-family: "Cinzel";
+				font-weight: bold;
+				font-size: 2.5vw;
+				line-height: 2.75vw;
+				color: #fff;
+				text-transform: uppercase;
+				text-align: center;
+				a {
+					color: inherit;
+					text-decoration: none;
+				}
+				@include respond-to(desktop-extra-large) {
+					font-size: 1vw;
+					line-height: 2.25vw;
+				}
+				@include respond-to(desktop-large) {
+					font-size: 1.5vw;
+					line-height: 2.5vw;
+				}
+				@include respond-to(mobile) {
+					font-size: 4vw;
+					line-height: 3.5vw;
+				}
+				@include respond-to(mobile-small) {
+					font-size: 6vw;
+					line-height: 3.75vw;
+				}
+			}
+			.hidden-content {
+				flex: 1 1 50%;
+				transform: translate(0, 100%);
+				bottom: 0;
+				position: absolute;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				opacity: 0;
+				transition: all 0.4s ease-in-out;
+				.content-wrapper {
+					flex: 1 1 70%;
+					position: relative;
+					color: #fff;
+					p {
+						text-align: center;
+						font-size: 16px;
+						line-height: 2.5vw;
+						margin-left: 10%;
+						margin-right: 10%;
+						@include respond-to(desktop-extra-large) {
+							line-height: 1.25vw;
+						}
+						@include respond-to(desktop-large) {
+							line-height: 1.5vw;
+						}
+						@include respond-to(mobile) {
+							line-height: 4vw;
+						}
+						@include respond-to(mobile-small) {
+							line-height: 6vw;
+						}
+					}
+					.border {
+						display: block;
+						margin-left: 10%;
+						margin-right: 10%;
+						margin-bottom: 5%;
+						height: 1px;
+						background: #ffffff;
+						position: relative;
+						opacity: 0.5;
+					}
+				}
+				.promo-actions {
+					transition: flex-grow 1s, flex-shrink 1s, flex-basis 1s, opacity 0.6s;
+					flex: 1 1 30%;
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+					letter-spacing: 0.2vw;
+					@include respond-to(desktop-extra-large) {
+						letter-spacing: 1vw;
+					}
+					@include respond-to(desktop-large) {
+						letter-spacing: 0.2vw;
+					}
+					@include respond-to(mobile) {
+						letter-spacing: 1.25vw;
+					}
+					@include respond-to(mobile-small) {
+						letter-spacing: 2.5vw;
+					}
+					a {
+						font-family: "Cinzel";
+						display: flex;
+						.arrow {
+							margin-left: 0.45vw;
+							width: 30px;
+							position: relative;
+						}
+
+						.line {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 75%;
+							background: #fff;
+							height: 1px;
+							float: left;
+						}
+						.point {
+							position: absolute;
+							top: 50%;
+							right: -50%;
+							transform: translateY(-50%);
+							width: 0;
+							height: 0;
+							border-top: 5px solid transparent;
+							border-bottom: 5px solid transparent;
+							border-left: 10px solid #fff;
+							float: right;
+						}
+					}
+				}
+			}
+		}
+
+		&:hover {
+			.thumbnail {
+				transform: scale(1);
+			}
+
+			.hidden-content {
+				opacity: 1;
+				position: static;
+				transform: translate(0, 0);
+			}
+		}
+	}
+}

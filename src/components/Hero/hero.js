@@ -15,16 +15,13 @@ const Header = ({ headerText, headerImage,siteUrl,title }) => {
   }
   return (
     <section id="header">
-      <img alt="scrollp" className="home-line" src={line} />
+
       <div className="swiper-container home-swiper">
 
-    <a className="logo-icon" href={siteUrl}>
-        <img src={logo} href={siteUrl} alt={title}/>
-      </a> 
+        <a className="logo-icon" href={siteUrl}>
+          <img src={logo} href={siteUrl} alt={title}/>
+        </a> 
 
-        {/* <img alt={siteUrl} className="home-logo" src={logo} /> */}
-        <div className="home-scroll">Scroll to explore</div>
-        <img alt="mouse-icon" className="home-mouse" src={mouse} />
         <div className="swiper-wrapper">
           <div className="swiper-slide">
             <h1 className="caption"><div className="centered">{headerText}</div></h1>
@@ -42,6 +39,19 @@ const Header = ({ headerText, headerImage,siteUrl,title }) => {
         </div>
         <div className="swiper-pagination" />
       </div>
+      <div className="scroll-to-explore">
+          <div className="scroll-text">Scroll to Explore</div>
+            <div            
+              style={{
+                backgroundImage: "url(" + mouse + ")",
+                backgroundPositionX: '50%',
+                backgroundPositionY: '50%',
+                backgroundRepeat: 'no-repeat'
+              }}
+              className="scroll-image">
+            </div>
+          <div className="scroll-line"></div>
+        </div>
     </section>
   )
 }

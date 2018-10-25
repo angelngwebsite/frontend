@@ -60,7 +60,7 @@ const Layout = ({ children }) => (
             siteUrl={data.site.siteMetadata.siteUrl}
             title={data.site.siteMetadata.title}
           />
-          <div>{children}</div>
+          {children}
         </>
       )
     }}
