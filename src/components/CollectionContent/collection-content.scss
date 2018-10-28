@@ -1,0 +1,54 @@
+@import '../variables';
+
+.collection-content {
+  min-height: 370px;
+  display: flex;
+  justify-content: center;
+  background: #f8f8f8;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  #collection-start {
+    position: absolute;
+    top: 0;
+  }
+  .center-column {
+    flex-direction: column;
+    .headers {
+      margin-top: 10vw;
+      @include respond-to(desktop-large) {
+        margin-top: 10vw;
+      }
+      justify-content: center;
+      .headers-wrapper {
+        .background-text {
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    .content-text {
+      padding-right: 10vw;
+      padding-left: 10vw;
+      @include respond-to(desktop-extra-large) {
+        padding-right: 5vw;
+        padding-left: 5vw;
+      }
+      @include respond-to(desktop-large) {
+        padding-right: 10vw;
+        padding-left: 10vw;
+      }
+      @include respond-to(mobile) {
+        padding-left: 3vw;
+        padding-right: 3vw;
+      }
+      @include respond-to(mobile-small) {
+        padding-left: 3vw;
+        padding-right: 3vw;
+      }
+    }
+  }
+}

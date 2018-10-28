@@ -1,0 +1,27 @@
+@import '../variables';
+
+.news-header {
+  min-height: 370px;
+  display: flex;
+  justify-content: center;
+  background: #f8f8f8;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  .center-column {
+    flex-direction: column;
+    .headers {
+      justify-content: center;
+      .headers-wrapper {
+        .background-text {
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

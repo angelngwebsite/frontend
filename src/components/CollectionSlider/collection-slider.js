@@ -1,14 +1,20 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import './sa-slider.scss'
+import './collection-slider.scss'
 import Swiper from 'react-id-swiper'
 import Img from 'gatsby-image'
-const SASliders = ({ children }) => (
+const CollectionSlider = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SASliders {
+      query CollectionSlider {
+        site {
+          siteMetadata {
+            title
+            siteUrl
+          }
+        }
         allWordpressPost(
-          filter: { acf: { isRadioshow: { ne: null } } }
+          filter: { acf: { isCollection: { ne: null } } }
           sort: { fields: date }
         ) {
           edges {
@@ -16,8 +22,9 @@ const SASliders = ({ children }) => (
               id
               wordpress_id
               acf {
-                newsTitle
-                newsMainImage {
+                collectionTitle
+                collectionDescription
+                collectionMainImage {
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 1800) {
@@ -56,9 +63,14 @@ const SASliders = ({ children }) => (
         },
       }
       return (
-        <section id="promos">
+        <section id="collection-slider">
           <Swiper {...params}>
-            {data.allWordpressPost.edges.reverse().map((news, i) => {
+            {data.allWordpressPost.edges.map((collection, i) => {
+              const collectionUrl =
+                '/collections/' +
+                collection.node.wordpress_id +
+                '/#collection-start'
+              console.log(collectionUrl)
               return (
                 <article key={i} className="promo">
                   <div className="inner-wrapper">
@@ -72,13 +84,15 @@ const SASliders = ({ children }) => (
                           height: '100%',
                         }}
                         fluid={
-                          news.node.acf.newsMainImage.localFile.childImageSharp
-                            .fluid
+                          collection.node.acf.collectionMainImage.localFile
+                            .childImageSharp.fluid
                         }
                       />
                     </div>
                     <div className="content">
-                      <h4 className="fs_title">{news.node.acf.newsTitle}</h4>
+                      <h4 className="fs_title">
+                        {collection.node.acf.collectionTitle}
+                      </h4>
                       <div className="hidden-content">
                         <div className="content-wrapper">
                           <div className="border" />
@@ -86,8 +100,8 @@ const SASliders = ({ children }) => (
                         </div>
 
                         <div className="promo-actions">
-                          <a href="{$promo->link}" className="promo-button">
-                            Read more
+                          <a href={collectionUrl} className="promo-button">
+                            Show more
                             <span className="arrow">
                               <span className="line" />
                               <span className="point" />
@@ -107,4 +121,4 @@ const SASliders = ({ children }) => (
   />
 )
 
-export default SASliders
+export default CollectionSlider

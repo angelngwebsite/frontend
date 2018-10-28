@@ -1,0 +1,42 @@
+@import '../variables';
+
+.news-content {
+  min-height: 370px;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  #news-start {
+    position: absolute;
+    top: 0;
+  }
+  .center-column {
+    flex-direction: column;
+    .headers {
+      justify-content: center;
+    }
+    .content-text {
+      padding-right: 30vw;
+      padding-left: 30vw;
+      @include respond-to(desktop-extra-large) {
+        padding-right: 50vw;
+        padding-left: 50vw;
+      }
+      @include respond-to(desktop-large) {
+        padding-right: 30vw;
+        padding-left: 30vw;
+      }
+      @include respond-to(mobile) {
+        padding-left: 3vw;
+        padding-right: 3vw;
+      }
+      @include respond-to(mobile-small) {
+        padding-left: 3vw;
+        padding-right: 3vw;
+      }
+    }
+  }
+}

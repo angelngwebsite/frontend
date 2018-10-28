@@ -1,9 +1,6 @@
 import React from 'react'
-import PropTypes, { node } from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import './about-content.scss'
-import Swiper from 'react-id-swiper'
-import Img from 'gatsby-image'
 
 const AboutContent = ({ children }) => (
   <StaticQuery

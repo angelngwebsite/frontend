@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import './sa-content.scss'
 
@@ -24,7 +23,7 @@ const SAContent = ({ children }) => (
     `}
     render={data => {
       return (
-        <section className="content page-content sacontent">
+        <section className="content page-content sa-content">
           <div className="center-column flex-content">
             <div className="headers">
               <div className="headers-wrapper">

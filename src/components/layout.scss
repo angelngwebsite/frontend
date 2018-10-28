@@ -1,162 +1,173 @@
-@import "./variables";
-@import "./fonts";
+@import './variables';
+@import './fonts';
 
 .swiper-pagination {
-	position: static;
-	height: 145px;
-	font-size: 0;
-	text-align: center;
-	.swiper-pagination-bullet {
-		position: relative;
-		top: 30%;
-		border: solid 1px transparent;
-		background-clip: content-box;
-		background-color: #545454;
-		cursor: pointer;
-		display: inline-block;
-		height: 26px;
-		margin: 0 1px;
-		padding: 8px;
-		position: relative;
-		width: 26px;
-		transition: all $transition;
-		border-radius: 100%;
-		&:hover,
-		&.swiper-active-bullet {
-			opacity: 0.25;
-			border-color: #a7a7a7;
-		}
-	}
+  position: static;
+  height: 145px;
+  font-size: 0;
+  text-align: center;
+  .swiper-pagination-bullet {
+    position: relative;
+    top: 30%;
+    border: solid 1px transparent;
+    background-clip: content-box;
+    background-color: #545454;
+    cursor: pointer;
+    display: inline-block;
+    height: 26px;
+    margin: 0 1px;
+    padding: 8px;
+    position: relative;
+    width: 26px;
+    transition: all $transition;
+    border-radius: 100%;
+    &:hover,
+    &.swiper-active-bullet {
+      opacity: 0.25;
+      border-color: #a7a7a7;
+    }
+  }
 }
 
 html {
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	font-family: "Open Sans", sans-serif;
-	font-size: 16px;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-	display: initial;
-	body {
-		position: relative;
-		margin: 0px;
-		display: initial;
-		padding: 0px;
-		margin: 0;
-	}
+  position: relative;
+  margin: 0px;
+  background: #fff;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  display: initial;
+  body {
+    position: relative;
+    margin: 0px;
+    display: initial;
+    padding: 0px;
+    margin: 0;
+  }
 }
 
 .flex-content {
-	display: flex;
-	@include respond-to(mobile) {
-		display: block;
-	}
-	@include respond-to(tablet) {
-		display: block;
-	}
+  display: flex;
+  @include respond-to(mobile) {
+    display: block;
+  }
+  @include respond-to(mobile-small) {
+    display: block;
+  }
+  @include respond-to(tablet) {
+    display: block;
+  }
 }
 
 .center-column {
-	position: relative;
-	max-width: 1440px;
-	margin: 0 auto;
-	padding: 0 20px;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
 
-	@include respond-to(mobile) {
-		padding: 0 10px;
-	}
+  @include respond-to(mobile) {
+    padding: 0 10px;
+  }
+  @include respond-to(mobile-small) {
+    padding: 0 10px;
+  }
 }
 
 .page-content {
-	@include respond-to(mobile) {
-		text-align: center;
-	}
-	.headers {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		flex: 1 1 50%;
-		box-sizing: border-box;
+  @include respond-to(mobile) {
+    text-align: center;
+  }
+  @include respond-to(mobile-small) {
+    text-align: center;
+  }
+  .headers {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1 1 50%;
+    box-sizing: border-box;
 
-		@include respond-to(tablet) {
-			margin-top: 10vw;
-			justify-content: center;
-			text-align: center;
-		}
-		@include respond-to(mobile) {
-			margin-top: 10vw;
-			justify-content: center;
-			text-align: center;
-		}
-		@include respond-to(mobile-small) {
-			margin-top: 10vw;
-		}
+    @include respond-to(tablet) {
+      margin-top: 10vw;
+      justify-content: center;
+      text-align: center;
+    }
+    @include respond-to(mobile) {
+      margin-top: 10vw;
+      justify-content: center;
+      text-align: center;
+    }
+    @include respond-to(mobile-small) {
+      margin-top: 10vw;
+    }
 
-		.headers-wrapper {
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-			.background-text {
-				text-transform: lowercase;
-				user-select: none;
-				white-space: nowrap;
-				position: absolute;
-				font-size: 14vw;
-				font-family: "Allura";
-				color: #f0f0ee;
-				z-index: 1;
-				left: 0;
-				right: 0;
-				display: flex;
-				justify-content: center;
-				@include respond-to(mobile-small) {
-					font-size: 24vw;
-				}
-				@include respond-to(mobile) {
-					font-size: 20vw;
-				}
-				@include respond-to(desktop-large) {
-					font-size: 10vw;
-				}
-			}
-			h2 {
-				color: #585b6e;
-				font-size: 36px;
-				line-height: 1.2;
-				font-weight: 200;
-				text-transform: uppercase;
-				font-family: "Cinzel", sans-serif;
-				z-index: 3;
-				margin-bottom: 2vw;
-				padding: 0;
-				@include respond-to(desktop-large) {
-					margin-bottom: 1vw;
-				}
-				@include respond-to(desktop-extra-large) {
-					margin-bottom: 0.5vw;
-				}
-			}
-		}
-	}
-	.content-text {
-		margin-top: 2vh;
-		margin-bottom: 2vh;
-		z-index: 3;
-		flex: 1 1 50%;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		position: relative;
-		box-sizing: border-box;
-		p {
-			margin: 0;
-			padding: 0;
-		}
-	}
-	p {
-		color: #878997;
-		line-height: 2.35;
-	}
+    .headers-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .background-text {
+        text-transform: capitalize;
+        user-select: none;
+        white-space: nowrap;
+        position: absolute;
+        font-size: 14vw;
+        font-family: 'Allura';
+        color: #f0f0ee;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+
+        @include respond-to(mobile) {
+          font-size: 20vw;
+        }
+        @include respond-to(mobile-small) {
+          font-size: 20vw;
+        }
+        @include respond-to(desktop-large) {
+          font-size: 10vw;
+        }
+      }
+      h2 {
+        color: #585b6e;
+        font-size: 36px;
+        line-height: 1.2;
+        font-weight: 200;
+        text-transform: uppercase;
+        font-family: 'Cinzel', sans-serif;
+        z-index: 3;
+        margin-bottom: 2vw;
+        padding: 0;
+        @include respond-to(desktop-large) {
+          margin-bottom: 1vw;
+        }
+        @include respond-to(desktop-extra-large) {
+          margin-bottom: 0.5vw;
+        }
+      }
+    }
+  }
+  .content-text {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    z-index: 3;
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  p {
+    color: #878997;
+    line-height: 2.35;
+  }
 }
