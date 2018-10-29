@@ -43,7 +43,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     console.log('Create Page pages.')
     // Create Page pages.
-    const collectionTemplate = path.resolve('./src/templates/collection.js')
+    const collectionTemplate = path.resolve('src/templates/collection.js')
     // We want to create a detailed page for each
     // page node. We'll just use the WordPress Slug for the slug.
     // The Page ID is prefixed with 'PAGE_'
