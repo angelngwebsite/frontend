@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Footer from './Footer/footer'
 import Hero from './Hero/hero'
 import './layout.scss'
+import icon32 from '../../public/icons/myicon.png'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -50,6 +51,9 @@ const Layout = ({ children }) => (
             meta={[
               { name: 'description', content: 'Sample' },
               { name: 'keywords', content: 'sample, something' },
+            ]}
+            link={[
+              { rel: 'shortcut icon', type: 'image/png', href: `${icon32}` },
             ]}
           >
             <html lang="en" />
