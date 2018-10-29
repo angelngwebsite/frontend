@@ -71,57 +71,57 @@ exports.createPages = ({ graphql, actions }) => {
   })
   console.log('==== END PAGES ====')
 
-  console.log('==== NEWS (WORDPRESS NATIVE) ====')
-  graphql(
-    `
-      {
-        allWordpressPost(filter: { acf: { isNews: { ne: null } } }) {
-          edges {
-            node {
-              id
-              wordpress_id
-              acf {
-                newsTitle
-                newsDescription
-              }
-            }
-          }
-        }
-      }
-    `
-  ).then(result => {
-    if (result.errors) {
-      console.log(result.errors)
-      reject(result.errors)
-    }
+  // console.log('==== NEWS (WORDPRESS NATIVE) ====')
+  // graphql(
+  //   `
+  //     {
+  //       allWordpressPost(filter: { acf: { isNews: { ne: null } } }) {
+  //         edges {
+  //           node {
+  //             id
+  //             wordpress_id
+  //             acf {
+  //               newsTitle
+  //               newsDescription
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // ).then(result => {
+  //   if (result.errors) {
+  //     console.log(result.errors)
+  //     reject(result.errors)
+  //   }
 
-    console.log('Create NEWS pages.')
-    // Create Page pages.
-    const collectionTemplate = path.resolve('./src/templates/news-page.js')
-    // We want to create a detailed page for each
-    // page node. We'll just use the WordPress Slug for the slug.
-    // The Page ID is prefixed with 'PAGE_'
-    console.log(result.data.allWordpressPost.edges)
-    _.each(result.data.allWordpressPost.edges, edge => {
-      console.log('EACH loop')
-      // Gatsby uses Redux to manage its internal state.
-      // Plugins and sites can use functions like "createPage"
-      // to interact with Gatsby.
-      console.log('/' + edge.node.wordpress_id + '/')
-      createPage({
-        // Each page is required to have a `path` as well
-        // as a template component. The `context` is
-        // optional but is often necessary so the template
-        // can query data specific to each page.
+  //   console.log('Create NEWS pages.')
+  //   // Create Page pages.
+  //   const collectionTemplate = path.resolve('./src/templates/news-page.js')
+  //   // We want to create a detailed page for each
+  //   // page node. We'll just use the WordPress Slug for the slug.
+  //   // The Page ID is prefixed with 'PAGE_'
+  //   console.log(result.data.allWordpressPost.edges)
+  //   _.each(result.data.allWordpressPost.edges, edge => {
+  //     console.log('EACH loop')
+  //     // Gatsby uses Redux to manage its internal state.
+  //     // Plugins and sites can use functions like "createPage"
+  //     // to interact with Gatsby.
+  //     console.log('/' + edge.node.wordpress_id + '/')
+  //     createPage({
+  //       // Each page is required to have a `path` as well
+  //       // as a template component. The `context` is
+  //       // optional but is often necessary so the template
+  //       // can query data specific to each page.
 
-        path: '/news-page/' + edge.node.wordpress_id + '/',
-        component: slash(collectionTemplate),
-        context: {
-          wordpress_id: edge.node.wordpress_id,
-        },
-      })
-      console.log('NEWS created')
-    })
-  })
-  console.log('==== END NEWS ====')
+  //       path: '/news-page/' + edge.node.wordpress_id + '/',
+  //       component: slash(collectionTemplate),
+  //       context: {
+  //         wordpress_id: edge.node.wordpress_id,
+  //       },
+  //     })
+  //     console.log('NEWS created')
+  //   })
+  // })
+  // console.log('==== END NEWS ====')
 }
