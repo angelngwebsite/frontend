@@ -28,25 +28,29 @@ const CollectionPhotos = ({ photos }) => {
           return (
             <div className="collection-row" key={i}>
               {photoRow.row.imageWrapper.map((photo, i) => {
-                return (
-                  <article key={i} className="photo">
-                    <AutomateAspectratio
-                      numberofImages={photoRow.row.imageWrapper.length}
-                    >
-                      <Img
-                        style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: 0,
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'contain',
-                        }}
-                        fluid={photo.image.localFile.childImageSharp.fluid}
-                      />
-                    </AutomateAspectratio>
-                  </article>
-                )
+                if (photo.image.localFile != null) {
+                  return (
+                    <article key={i} className="photo">
+                      <AutomateAspectratio
+                        numberofImages={photoRow.row.imageWrapper.length}
+                      >
+                        <Img
+                          style={{
+                            position: 'absolute',
+                            left: 0,
+                            top: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain',
+                          }}
+                          fluid={photo.image.localFile.childImageSharp.fluid}
+                        />
+                      </AutomateAspectratio>
+                    </article>
+                  )
+                } else {
+                  console.log('Localfile is NULL cannnot load')
+                }
               })}
             </div>
           )
