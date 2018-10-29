@@ -17,6 +17,9 @@
       margin-bottom: 150px;
     }
     .photo {
+      &:last-child {
+        margin-right: 0;
+      }
       margin-right: 30px;
       position: relative;
       display: inline-block;
