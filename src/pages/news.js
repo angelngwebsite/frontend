@@ -6,15 +6,26 @@ import NewsContent from '../components/NewsContent/news-content'
 
 class NewsTemplate extends Component {
   render() {
-    const post = this.props.data.allWordpressPost.edges[0].node
+    const posts = this.props.data.allWordpressPost.edges
     console.log(this.props.data)
     return (
       <Layout>
         <NewsHeader title="News" backgroundText="News" />
-        <NewsContent
-          title={post.acf.newsTitle}
-          content={post.acf.newsDescription}
-        />
+
+        {posts.reverse().map((post, i) => {
+          console.log(post)
+          return (
+            <NewsContent
+              key={i}
+              title={post.node.acf.newsTitle}
+              link={post.node.acf.newsLink}
+              linkAppearance={post.node.acf.newsLinkAppearance}
+              content={post.node.acf.newsDescription}
+              embedLink={post.node.acf.newsEmbed.source_url}
+              anchorSlug={post.node.wordpress_id}
+            />
+          )
+        })}
       </Layout>
     )
   }
@@ -26,7 +37,7 @@ export const pageQuery = graphql`
   query NewsQuery {
     allWordpressPost(
       filter: { acf: { isNews: { ne: null } } }
-      sort: { fields: date }
+      sort: { fields: date, order: DESC }
     ) {
       edges {
         node {
@@ -35,7 +46,10 @@ export const pageQuery = graphql`
           acf {
             newsTitle
             newsDescription
-
+            newsLink
+            newsEmbed {
+              source_url
+            }
             newsLinkAppearance
           }
         }

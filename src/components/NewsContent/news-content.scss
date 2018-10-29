@@ -9,25 +9,48 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  #news-start {
+  &:nth-child(even) {
+    background: #f8f8f8;
+  }
+  .news-start {
     position: absolute;
     top: 0;
   }
   .center-column {
     flex-direction: column;
     .headers {
+      margin-top: 10vw;
+
       justify-content: center;
     }
     .content-text {
-      padding-right: 30vw;
-      padding-left: 30vw;
+      display: flex;
+      flex-direction: column;
+      audio {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      a {
+        font-family: 'Cinzel';
+        letter-spacing: 2px;
+        text-decoration: none;
+        color: #000000;
+        font-weight: bold;
+        transition: color 0.4s ease-in-out;
+        &:hover {
+          color: rgb(155, 155, 155);
+        }
+      }
+      padding-right: 20vw;
+      padding-left: 20vw;
       @include respond-to(desktop-extra-large) {
-        padding-right: 50vw;
-        padding-left: 50vw;
+        padding-right: 20vw;
+        padding-left: 20vw;
       }
       @include respond-to(desktop-large) {
-        padding-right: 30vw;
-        padding-left: 30vw;
+        padding-right: 20vw;
+        padding-left: 20vw;
       }
       @include respond-to(mobile) {
         padding-left: 3vw;

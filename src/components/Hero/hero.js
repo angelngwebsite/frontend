@@ -19,7 +19,7 @@ const Header = ({ headerText, headerImage, siteUrl, title }) => {
             </h1>
             <Img
               style={{
-                position: 'absolute',
+                position: 'fixed',
                 left: 0,
                 top: 0,
                 width: '100%',

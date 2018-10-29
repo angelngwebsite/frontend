@@ -14,6 +14,9 @@ class NewsTemplate extends Component {
         <NewsContent
           title={post.acf.newsTitle}
           content={post.acf.newsDescription}
+          link={post.node.acf.newsLink}
+          linkAppearance={post.node.acf.newsLinkAppearance}
+          embedLink={post.node.acf.newsEmbed.source_url}
         />
       </Layout>
     )
@@ -32,6 +35,11 @@ export const pageQuery = graphql`
           acf {
             newsTitle
             newsDescription
+            newsLink
+            newsEmbed {
+              source_url
+            }
+            newsLinkAppearance
           }
         }
       }

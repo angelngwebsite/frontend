@@ -3,13 +3,14 @@ import { StaticQuery, graphql } from 'gatsby'
 import './sa-slider.scss'
 import Swiper from 'react-id-swiper'
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 const SASliders = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SASliders {
         allWordpressPost(
           filter: { acf: { isRadioshow: { ne: null } } }
-          sort: { fields: date }
+          sort: { fields: date, order: DESC }
         ) {
           edges {
             node {
@@ -37,8 +38,12 @@ const SASliders = ({ children }) => (
         spaceBetween: 20,
         slidesPerView: 5,
         loop: false,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
         breakpoints: {
-          640: {
+          450: {
             slidesPerView: 1,
           },
           767: {
@@ -58,49 +63,57 @@ const SASliders = ({ children }) => (
       return (
         <section id="promos">
           <Swiper {...params}>
-            {data.allWordpressPost.edges.reverse().map((news, i) => {
+            {data.allWordpressPost.edges.map((news, i) => {
+              const newsUrl = '/news/#' + news.node.wordpress_id
               return (
                 <article key={i} className="promo">
-                  <div className="inner-wrapper">
-                    <div className="thumbnail">
-                      <Img
-                        style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: 0,
-                          width: '100%',
-                          height: '100%',
-                        }}
-                        fluid={
-                          news.node.acf.newsMainImage.localFile.childImageSharp
-                            .fluid
-                        }
-                      />
-                    </div>
-                    <div className="content">
-                      <h4 className="fs_title">{news.node.acf.newsTitle}</h4>
-                      <div className="hidden-content">
-                        <div className="content-wrapper">
-                          <div className="border" />
-                          <p className="" />
-                        </div>
+                  <Link to={newsUrl}>
+                    <div className="inner-wrapper">
+                      <div className="thumbnail">
+                        <Img
+                          style={{
+                            position: 'absolute',
+                            left: 0,
+                            top: 0,
+                            width: '100%',
+                            height: '100%',
+                          }}
+                          fluid={
+                            news.node.acf.newsMainImage.localFile
+                              .childImageSharp.fluid
+                          }
+                        />
+                      </div>
+                      <div className="content">
+                        <h4 className="fs_title">{news.node.acf.newsTitle}</h4>
+                        <div className="hidden-content">
+                          <div className="content-wrapper">
+                            <div className="border" />
+                            <p className="" />
+                          </div>
 
-                        <div className="promo-actions">
-                          <a href="{$promo->link}" className="promo-button">
-                            Read more
-                            <span className="arrow">
-                              <span className="line" />
-                              <span className="point" />
-                            </span>
-                          </a>
+                          <div className="promo-actions">
+                            <div to={newsUrl} className="promo-button">
+                              Read more
+                              <span className="arrow">
+                                <span className="line" />
+                                <span className="point" />
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </article>
               )
             })}
-          </Swiper>
+          </Swiper>{' '}
+          <div className="sa-contact">
+            <a className="mailto" href="mailto:angelng.design@gmail.com">
+              Contact a stylist
+            </a>
+          </div>
         </section>
       )
     }}

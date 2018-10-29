@@ -1,50 +1,51 @@
-@import "../variables";
+@import '../variables';
 
 .about-content {
-	min-height: 370px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	position: relative;
-	overflow: hidden;
-	.center-column {
-		flex-direction: column;
-		.headers {
-			margin-top: 10vw;
-			@include respond-to(desktop-large) {
-				margin-top: 10vw;
-			}
-			justify-content: center;
-			.headers-wrapper {
-				.background-text {
-					z-index: -1;
-					left: 0;
-					right: 0;
-					display: flex;
-					justify-content: center;
-				}
-			}
-		}
-		.content-text {
-			padding-right: 10vw;
-			padding-left: 10vw;
-			@include respond-to(desktop-extra-large) {
-				padding-right: 5vw;
-				padding-left: 5vw;
-			}
-			@include respond-to(desktop-large) {
-				padding-right: 10vw;
-				padding-left: 10vw;
-			}
-			@include respond-to(mobile) {
-				padding-left: 3vw;
-				padding-right: 3vw;
-			}
-			@include respond-to(mobile-small) {
-				padding-left: 3vw;
-				padding-right: 3vw;
-			}
-		}
-	}
+  min-height: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  .center-column {
+    flex-direction: column;
+    .headers {
+      margin-top: 10vw;
+      @include respond-to(desktop-large) {
+        margin-top: 10vw;
+      }
+      justify-content: center;
+      .headers-wrapper {
+        .background-text {
+          z-index: 1;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    .content-text {
+      padding-right: 10vw;
+      padding-left: 10vw;
+      @include respond-to(desktop-extra-large) {
+        padding-right: 5vw;
+        padding-left: 5vw;
+      }
+      @include respond-to(desktop-large) {
+        padding-right: 10vw;
+        padding-left: 10vw;
+      }
+      @include respond-to(mobile) {
+        padding-left: 3vw;
+        padding-right: 3vw;
+      }
+      @include respond-to(mobile-small) {
+        padding-left: 3vw;
+        padding-right: 3vw;
+      }
+    }
+  }
 }

@@ -18,7 +18,7 @@ const AboutSlider = ({ children }) => {
     },
   }
   return (
-    <section id="about-promos" className="center-column">
+    <section id="about-promos">
       <article className="promo">
         <div className="inner-wrapper">
           <div className="thumbnail">
@@ -35,8 +35,8 @@ const AboutSlider = ({ children }) => {
                 event.target.playVideo()
               }}
             />
-          </div>{' '}
-        </div>{' '}
+          </div>
+        </div>
       </article>
     </section>
   )

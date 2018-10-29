@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-
+import Footer from './Footer/footer'
 import Hero from './Hero/hero'
 import './layout.scss'
 
@@ -61,6 +61,10 @@ const Layout = ({ children }) => (
             title={data.site.siteMetadata.title}
           />
           {children}
+          <Footer
+            siteUrl={data.site.siteMetadata.siteUrl}
+            title={data.site.siteMetadata.title}
+          />
         </>
       )
     }}

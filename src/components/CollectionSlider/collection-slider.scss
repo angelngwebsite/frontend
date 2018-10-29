@@ -5,7 +5,7 @@
   text-align: center;
   overflow: hidden;
   background-color: #f8f8f8;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   .swiper-container {
     //max-width: $break-desktop-large;
     margin: 0 auto;
@@ -97,7 +97,7 @@
         font-weight: bold;
         font-size: 2.5vw;
         text-shadow: 0px 0px 9px rgba(61, 59, 59, 0.856);
-        line-height: 2.75vw;
+        line-height: 4vw;
         color: rgb(255, 255, 255);
         text-transform: uppercase;
         text-align: center;
@@ -115,11 +115,11 @@
         }
         @include respond-to(mobile) {
           font-size: 4vw;
-          line-height: 3.5vw;
+          line-height: 5vw;
         }
         @include respond-to(mobile-small) {
-          font-size: 6vw;
-          line-height: 3.75vw;
+          font-size: 8vw;
+          line-height: 12vw;
         }
       }
       .hidden-content {

@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import './collection-slider.scss'
 import Swiper from 'react-id-swiper'
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 const CollectionSlider = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -15,7 +16,7 @@ const CollectionSlider = ({ children }) => (
         }
         allWordpressPost(
           filter: { acf: { isCollection: { ne: null } } }
-          sort: { fields: date }
+          sort: { fields: date, order: DESC }
         ) {
           edges {
             node {
@@ -43,9 +44,13 @@ const CollectionSlider = ({ children }) => (
       const params = {
         spaceBetween: 20,
         slidesPerView: 5,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
         loop: false,
         breakpoints: {
-          640: {
+          450: {
             slidesPerView: 1,
           },
           767: {
@@ -73,44 +78,46 @@ const CollectionSlider = ({ children }) => (
               console.log(collectionUrl)
               return (
                 <article key={i} className="promo">
-                  <div className="inner-wrapper">
-                    <div className="thumbnail">
-                      <Img
-                        style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: 0,
-                          width: '100%',
-                          height: '100%',
-                        }}
-                        fluid={
-                          collection.node.acf.collectionMainImage.localFile
-                            .childImageSharp.fluid
-                        }
-                      />
-                    </div>
-                    <div className="content">
-                      <h4 className="fs_title">
-                        {collection.node.acf.collectionTitle}
-                      </h4>
-                      <div className="hidden-content">
-                        <div className="content-wrapper">
-                          <div className="border" />
-                          <p className="" />
-                        </div>
+                  <Link to={collectionUrl}>
+                    <div className="inner-wrapper">
+                      <div className="thumbnail">
+                        <Img
+                          style={{
+                            position: 'absolute',
+                            left: 0,
+                            top: 0,
+                            width: '100%',
+                            height: '100%',
+                          }}
+                          fluid={
+                            collection.node.acf.collectionMainImage.localFile
+                              .childImageSharp.fluid
+                          }
+                        />
+                      </div>
+                      <div className="content">
+                        <h4 className="fs_title">
+                          {collection.node.acf.collectionTitle}
+                        </h4>
+                        <div className="hidden-content">
+                          <div className="content-wrapper">
+                            <div className="border" />
+                            <p className="" />
+                          </div>
 
-                        <div className="promo-actions">
-                          <a href={collectionUrl} className="promo-button">
-                            Show more
-                            <span className="arrow">
-                              <span className="line" />
-                              <span className="point" />
-                            </span>
-                          </a>
+                          <div className="promo-actions">
+                            <div href={collectionUrl} className="promo-button">
+                              Show more
+                              <span className="arrow">
+                                <span className="line" />
+                                <span className="point" />
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </article>
               )
             })}

@@ -22,34 +22,36 @@ function AutomateAspectratio(props) {
 
 const CollectionPhotos = ({ photos }) => {
   return (
-    <section id="collection-photos" className="center-column">
-      {photos.map((photoRow, i) => {
-        return (
-          <div className="collection-row" key={i}>
-            {photoRow.row.imageWrapper.map((photo, i) => {
-              return (
-                <article key={i} className="photo">
-                  <AutomateAspectratio
-                    numberofImages={photoRow.row.imageWrapper.length}
-                  >
-                    <Img
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                      }}
-                      fluid={photo.image.localFile.childImageSharp.fluid}
-                    />
-                  </AutomateAspectratio>
-                </article>
-              )
-            })}
-          </div>
-        )
-      })}
+    <section id="collection-photos">
+      <div className="center-column">
+        {photos.map((photoRow, i) => {
+          return (
+            <div className="collection-row" key={i}>
+              {photoRow.row.imageWrapper.map((photo, i) => {
+                return (
+                  <article key={i} className="photo">
+                    <AutomateAspectratio
+                      numberofImages={photoRow.row.imageWrapper.length}
+                    >
+                      <Img
+                        style={{
+                          position: 'absolute',
+                          left: 0,
+                          top: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'contain',
+                        }}
+                        fluid={photo.image.localFile.childImageSharp.fluid}
+                      />
+                    </AutomateAspectratio>
+                  </article>
+                )
+              })}
+            </div>
+          )
+        })}
+      </div>
     </section>
   )
 }

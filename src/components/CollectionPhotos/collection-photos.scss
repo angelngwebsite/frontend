@@ -4,12 +4,18 @@
   text-align: center;
   font-size: 0;
   white-space: nowrap;
-  margin-top: 50px;
+  padding-top: 50px;
+  background: #fff;
+  position: relative;
+  box-sizing: border-box;
   .collection-row {
     display: flex;
     justify-content: center;
     margin-top: 50px;
 
+    &:last-child {
+      margin-bottom: 150px;
+    }
     .photo {
       margin-right: 30px;
       position: relative;
