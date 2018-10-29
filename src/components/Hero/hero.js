@@ -3,14 +3,14 @@ import Img from 'gatsby-image'
 import logo from '../../images/Logo.svg'
 import mouse from '../../images/Mouse.svg'
 import './hero.scss'
-
+import { Link } from 'gatsby'
 const Header = ({ headerText, headerImage, siteUrl, title }) => {
   return (
     <section id="header">
       <div className="swiper-container home-swiper">
-        <a className="logo-icon" href={siteUrl}>
+        <Link className="logo-icon" to="/">
           <img src={logo} href={siteUrl} alt={title} />
-        </a>
+        </Link>
 
         <div className="swiper-wrapper">
           <div className="swiper-slide">

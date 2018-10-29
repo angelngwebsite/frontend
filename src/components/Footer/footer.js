@@ -1,5 +1,5 @@
 import logo from '../../images/Logo.svg'
-
+import { Link } from 'gatsby'
 import React from 'react'
 import './footer.scss'
 
@@ -39,9 +39,9 @@ const Footer = ({ siteUrl, title }) => {
           </div>
         </div>{' '}
         <div className="credentials">
-          <a className="logo-icon" href={siteUrl}>
+          <Link className="logo-icon" to="/">
             <img src={logo} href={siteUrl} alt={title} />
-          </a>
+          </Link>
           <div className="signature-wrapper">
             <small className="copyright">
               2018 ANGELNG. All rights reserved.
