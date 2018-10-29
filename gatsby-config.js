@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'http://localhost:8000',
+    siteUrl: 'https://www.angelng.ee',
     siteName: 'ANGELG Design Studio',
     title: 'ANGELG Design Studio',
   },
