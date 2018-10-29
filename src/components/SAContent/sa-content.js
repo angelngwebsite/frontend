@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import './sa-content.scss'
 
-const SAContent = ({ children }) => (
+const SAContent = () => (
   <StaticQuery
     query={graphql`
       query SAContent {
